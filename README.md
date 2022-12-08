@@ -2,6 +2,6 @@ Laragigs it's a learning project created whit Laravel a PHP framework, this fram
 
 Features:
 
--   User Authentication
+-   User Register and Authentication
 -   Post's CRUD
 -   Listings whit search bar

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ListingController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Models\Listing;
@@ -16,36 +17,8 @@ use App\Models\Listing;
 */
 
 // All Listings
-Route::get('/', function () {
-    return view('listings', [
-        'heading' => 'Latest Listings',
-        'listings' => Listing::all(),
-    ]);
-});
+Route::get('/', [ListingController::class, 'index']);
 
 //Single Listing
-//route model binding way
-Route::get('/listing/{listing}', function (Listing $listing) {
-    return view('listing', [
-        'listing' => $listing,
-    ]);
-});
 
-/* Route::get("/hello", function () {
-    //text and status code, network status informations
-    return response("<h1>Hello World</h1>", 200)->header(
-        "Content-Type",
-        "text/plain"
-    );
-});
-
-//wildcard, input: "/posts/1", output: "Post 1"
-Route::get("posts/{id}", function ($id) {
-    ddd($id);
-    return response("Post " . $id);
-})->where("id", "[0-9]+"); //route constraint
-
-//"Request class" was brought in by right click and import class, PHP Namespace Resolver
-Route::get("/search", function (Request $request) {
-    dd($request->name . "," . $request->city);
-}); */
+Route::get('/listing/{listing}', [ListingController::class, 'show']);

@@ -51,6 +51,10 @@ class ListingController extends Controller
                 ->file('logo')
                 ->store('logos', 'public');
         }
+
+        // add the user_id to the listing of the current logedin user
+        $formFields['user_id'] = auth()->id();
+
         Listing::create($formFields);
         return redirect('/')->with('message', 'Listing Created successfully!');
     }

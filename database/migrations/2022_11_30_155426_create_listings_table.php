@@ -14,6 +14,10 @@ return new class extends Migration {
     {
         Schema::create('listings', function (Blueprint $table) {
             $table->id();
+            $table
+                ->foreignId('user_id')
+                ->constrained()
+                ->onDelete('cascade'); //if the user is deleted the listings will be two
             $table->string('title');
             $table->string('logo')->nullable();
             $table->string('tags');

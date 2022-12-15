@@ -23,7 +23,7 @@ class UserController extends Controller
             'password' => 'required|confirmed|min:6',
         ]);
 
-        //Has Password
+        //Hash Password
         $formFields['password'] = bcrypt($formFields['password']);
 
         //Create User

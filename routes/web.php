@@ -52,6 +52,12 @@ Route::delete('listings/{listing}', [
     'destroy',
 ])->middleware('auth');
 
+//Manage Listings
+Route::get('/listings/manage', [
+    ListingController::class,
+    'manage',
+])->middleware('auth');
+
 //Show register/create form
 Route::get('/register', [UserController::class, 'create'])->middleware('guest');
 
